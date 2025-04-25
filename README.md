@@ -14,13 +14,13 @@ Where:
 
 The similarity between a query $Q$ and a document $D_j$ can be calculated using the following formulas:
 
-1. **Cosine Similarity:**
+1. **Dice Similarity:**
 
-   $$ \frac{2 * \sum_{i=1}^{n} w_{iq} w_{ij}}{\sum_{i=1}^{n} (w_{iq})^2 + \sum_{i=1}^{n} (w_{ij})^2} $$
+   $ frac{2 * \sum_{i=1}^{n} w_{iq} w_{ij}}{\sum_{i=1}^{n} (w_{iq})^2 + \sum_{i=1}^{n} (w_{ij})^2} $
 
-2. **Dot Product:**
+2. **RSV Product:**
 
-   $$ \sum_{i=1}^{n} w_{iq} w_{ij} $$
+   $sum_{i=1}^{n} w_{iq} w_{ij} $
 
 Where:
 - $w_{iq}$ is the weight of term $i$ in the query $Q$
