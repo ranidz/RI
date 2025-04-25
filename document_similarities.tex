@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+
+\title{Document Similarity Calculation}
+\author{Term Weight Calculator}
+\maketitle
+
+\section{Formula Used}
+The Retrieval Status Value (RSV) is used to calculate the similarity between a query $q$ and a document $d_j$:
+
+\begin{equation}
+RSV(q, d_j) = \sum_{i=1}^{n} w_{iq} \times w_{ij}
+\end{equation}
+
+Where:
+\begin{itemize}
+\item $w_{iq}$ is the weight of term $i$ in the query $q$
+\item $w_{ij}$ is the weight of term $i$ in document $d_j$
+\item $n$ is the total number of terms
+\end{itemize}
+
+\section{Term Weights}
+The term weights used for calculation are:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Term & D1 & D2 & D3 & Q \\
+\midrule
+algorithme & 0.000 & 0.000 & 1.000 & 0.000 \\
+base & 0.000 & 1.000 & 0.000 & 0.000 \\
+c++ & 0.000 & 1.000 & 0.000 & 0.000 \\
+java & 0.000 & 1.000 & 0.000 & 2.000 \\
+langage & 1.000 & 1.000 & 1.000 & 1.000 \\
+programmation & 1.322 & 0.000 & 0.661 & 0.000 \\
+python & 2.000 & 0.000 & 0.000 & 2.000 \\
+programme & 0.000 & 0.000 & 1.000 & 0.000 \\
+traitement & 2.000 & 0.000 & 0.000 & 0.000 \\
+texte & 2.000 & 0.000 & 0.000 & 0.000 \\
+traduire & 0.000 & 0.000 & 1.000 & 0.000 \\
+utilis\'{e} & 1.322 & 0.000 & 0.661 & 0.000 \\
+\bottomrule
+\end{tabular}
+\caption{Term weights for documents and query}
+\end{table}
+
+\section{Similarity Calculations}
+
+\subsection{Similarity between Query and Document D1}
+\begin{align}
+RSV(q, D1) &= \sum_{i=1}^{n} w_{iq} \times w_{i,D1} \\
+&= w_{algorithme,q} \times w_{algorithme,D1} + w_{base,q} \times w_{base,D1} + \ldots + w_{utilis\'{e},q} \times w_{utilis\'{e},D1} \\
+&= 0.000 \times 0.000 + 0.000 \times 0.000 + 0.000 \times 0.000 + 0.602 \times 0.000 + \\
+&\quad 0.301 \times 0.301 + 0.000 \times 0.398 + 0.602 \times 0.602 + 0.000 \times 0.000 + \\
+&\quad 0.000 \times 0.602 + 0.000 \times 0.602 + 0.000 \times 0.000 + 0.000 \times 0.398 \\
+&= 0 + 0 + 0 + 0 + 0.091 + 0 + 0.362 + 0 + 0 + 0 + 0 + 0 \\
+&= 0.453
+\end{align}
+
+\subsection{Similarity between Query and Document D2}
+\begin{align}
+RSV(q, D2) &= \sum_{i=1}^{n} w_{iq} \times w_{i,D2} \\
+&= w_{algorithme,q} \times w_{algorithme,D2} + w_{base,q} \times w_{base,D2} + \ldots + w_{utilis\'{e},q} \times w_{utilis\'{e},D2} \\
+&= 0.000 \times 0.000 + 0.000 \times 0.301 + 0.000 \times 0.301 + 0.602 \times 0.301 + \\
+&\quad 0.301 \times 0.301 + 0.000 \times 0.000 + 0.602 \times 0.000 + 0.000 \times 0.000 + \\
+&\quad 0.000 \times 0.000 + 0.000 \times 0.000 + 0.000 \times 0.000 + 0.000 \times 0.000 \\
+&= 0 + 0 + 0 + 0.181 + 0.091 + 0 + 0 + 0 + 0 + 0 + 0 + 0 \\
+&= 0.272
+\end{align}
+
+\subsection{Similarity between Query and Document D3}
+\begin{align}
+RSV(q, D3) &= \sum_{i=1}^{n} w_{iq} \times w_{i,D3} \\
+&= w_{algorithme,q} \times w_{algorithme,D3} + w_{base,q} \times w_{base,D3} + \ldots + w_{utilis\'{e},q} \times w_{utilis\'{e},D3} \\
+&= 0.000 \times 0.301 + 0.000 \times 0.000 + 0.000 \times 0.000 + 0.602 \times 0.000 + \\
+&\quad 0.301 \times 0.301 + 0.000 \times 0.199 + 0.602 \times 0.000 + 0.000 \times 0.301 + \\
+&\quad 0.000 \times 0.000 + 0.000 \times 0.000 + 0.000 \times 0.301 + 0.000 \times 0.199 \\
+&= 0 + 0 + 0 + 0 + 0.091 + 0 + 0 + 0 + 0 + 0 + 0 + 0 \\
+&= 0.091
+\end{align}
+
+\section{Document Ranking}
+Based on the similarity scores, the documents can be ranked in order of relevance to query Q:
+\begin{enumerate}
+\item D1 (similarity = 0.453)
+\item D2 (similarity = 0.272)
+\item D3 (similarity = 0.091)
+\end{enumerate}
+
+\section{Conclusion}
+The document D1 has the highest similarity score with the query, making it the most relevant document. Document D2 is the second most relevant, and D3 is the least relevant to the query.
+
+\end{document}

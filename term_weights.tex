@@ -1,0 +1,442 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+
+\title{Term Weight Calculation Report}
+\author{Term Weight Calculator}
+\maketitle
+
+\section{Formula Used}
+\begin{equation}
+w(t_i, d_j) = \frac{freq_{ij}}{\max\{\forall t_l \in d_j\} freq_{lj}} \times \log_{2}\left(\frac{N}{n_i} + 1\right)
+\end{equation}
+
+\section{Input Term Frequencies}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Term & D1 & D2 & D3 & Total \\
+\midrule
+algorithme & 0 & 0 & 1 & 1 \\
+base & 0 & 1 & 0 & 1 \\
+c++ & 0 & 1 & 0 & 1 \\
+java & 0 & 1 & 0 & 1 \\
+langage & 1 & 2 & 2 & 5 \\
+programmation & 1 & 0 & 1 & 2 \\
+python & 1 & 0 & 0 & 1 \\
+programme & 0 & 0 & 1 & 1 \\
+traitement & 1 & 0 & 0 & 1 \\
+texte & 1 & 0 & 0 & 1 \\
+traduire & 0 & 0 & 1 & 1 \\
+utilis\'{e} & 1 & 0 & 1 & 2 \\
+\bottomrule
+\end{tabular}
+\caption{Term frequencies in each document}
+\end{table}
+
+\section{Query Information}
+Query: \{langage, python, java\}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+\toprule
+Term & Frequency in Query \\
+\midrule
+algorithme & 0 \\
+base & 0 \\
+c++ & 0 \\
+java & 1 \\
+langage & 1 \\
+programmation & 0 \\
+python & 1 \\
+programme & 0 \\
+traitement & 0 \\
+texte & 0 \\
+traduire & 0 \\
+utilis\'{e} & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Term frequencies in query}
+\end{table}
+
+\section{Term Weight Calculations}
+\subsection{Term: algorithme}
+\subsubsection*{For document D1}
+\begin{align}
+w(algorithme, D1) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(algorithme, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(algorithme, D3) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.500 \times 2.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(algorithme, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: base}
+\subsubsection*{For document D1}
+\begin{align}
+w(base, D1) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(base, D2) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.500 \times 2.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(base, D3) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(base, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: c++}
+\subsubsection*{For document D1}
+\begin{align}
+w(c++, D1) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(c++, D2) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.500 \times 2.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(c++, D3) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(c++, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: java}
+\subsubsection*{For document D1}
+\begin{align}
+w(java, D1) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(java, D2) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.500 \times 2.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(java, D3) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(java, Q) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 1.000 \times 2.000 \\
+&= 2.000
+\end{align}
+
+\subsection{Term: langage}
+\subsubsection*{For document D1}
+\begin{align}
+w(langage, D1) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{3} + 1\right) \\
+&= 1.000 \times 1.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(langage, D2) &= \frac{2}{2} \times \log_{2}\left(\frac{3}{3} + 1\right) \\
+&= 1.000 \times 1.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(langage, D3) &= \frac{2}{2} \times \log_{2}\left(\frac{3}{3} + 1\right) \\
+&= 1.000 \times 1.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(langage, Q) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{3} + 1\right) \\
+&= 1.000 \times 1.000 \\
+&= 1.000
+\end{align}
+
+\subsection{Term: programmation}
+\subsubsection*{For document D1}
+\begin{align}
+w(programmation, D1) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 1.000 \times 1.322 \\
+&= 1.322
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(programmation, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 0.000 \times 1.322 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(programmation, D3) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 0.500 \times 1.322 \\
+&= 0.661
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(programmation, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 0.000 \times 1.322 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: python}
+\subsubsection*{For document D1}
+\begin{align}
+w(python, D1) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 1.000 \times 2.000 \\
+&= 2.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(python, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(python, D3) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(python, Q) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 1.000 \times 2.000 \\
+&= 2.000
+\end{align}
+
+\subsection{Term: programme}
+\subsubsection*{For document D1}
+\begin{align}
+w(programme, D1) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(programme, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(programme, D3) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.500 \times 2.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(programme, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: traitement}
+\subsubsection*{For document D1}
+\begin{align}
+w(traitement, D1) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 1.000 \times 2.000 \\
+&= 2.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(traitement, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(traitement, D3) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(traitement, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: texte}
+\subsubsection*{For document D1}
+\begin{align}
+w(texte, D1) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 1.000 \times 2.000 \\
+&= 2.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(texte, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(texte, D3) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(texte, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: traduire}
+\subsubsection*{For document D1}
+\begin{align}
+w(traduire, D1) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(traduire, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(traduire, D3) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.500 \times 2.000 \\
+&= 1.000
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(traduire, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{1} + 1\right) \\
+&= 0.000 \times 2.000 \\
+&= 0.000
+\end{align}
+
+\subsection{Term: utilis\'{e}}
+\subsubsection*{For document D1}
+\begin{align}
+w(utilis\'{e}, D1) &= \frac{1}{1} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 1.000 \times 1.322 \\
+&= 1.322
+\end{align}
+
+\subsubsection*{For document D2}
+\begin{align}
+w(utilis\'{e}, D2) &= \frac{0}{2} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 0.000 \times 1.322 \\
+&= 0.000
+\end{align}
+
+\subsubsection*{For document D3}
+\begin{align}
+w(utilis\'{e}, D3) &= \frac{1}{2} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 0.500 \times 1.322 \\
+&= 0.661
+\end{align}
+
+\subsubsection*{For query Q}
+\begin{align}
+w(utilis\'{e}, Q) &= \frac{0}{1} \times \log_{2}\left(\frac{3}{2} + 1\right) \\
+&= 0.000 \times 1.322 \\
+&= 0.000
+\end{align}
+
+\section{Final Term Weights}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Term & D1 & D2 & D3 & Q \\
+\midrule
+algorithme & 0.000 & 0.000 & 1.000 & 0.000 \\
+base & 0.000 & 1.000 & 0.000 & 0.000 \\
+c++ & 0.000 & 1.000 & 0.000 & 0.000 \\
+java & 0.000 & 1.000 & 0.000 & 2.000 \\
+langage & 1.000 & 1.000 & 1.000 & 1.000 \\
+programmation & 1.322 & 0.000 & 0.661 & 0.000 \\
+python & 2.000 & 0.000 & 0.000 & 2.000 \\
+programme & 0.000 & 0.000 & 1.000 & 0.000 \\
+traitement & 2.000 & 0.000 & 0.000 & 0.000 \\
+texte & 2.000 & 0.000 & 0.000 & 0.000 \\
+traduire & 0.000 & 0.000 & 1.000 & 0.000 \\
+utilis\'{e} & 1.322 & 0.000 & 0.661 & 0.000 \\
+\bottomrule
+\end{tabular}
+\caption{Final term weights}
+\end{table}
+
+\end{document}
