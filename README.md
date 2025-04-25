@@ -10,6 +10,24 @@ Where:
 - $N$ is the total number of documents
 - $n_i$ is the number of documents containing term $i$
 
+## Similarity Calculations
+
+The similarity between a query $Q$ and a document $D_j$ can be calculated using the following formulas:
+
+1. **Cosine Similarity:**
+
+   $$ \frac{2 * \sum_{i=1}^{n} w_{iq} w_{ij}}{\sum_{i=1}^{n} (w_{iq})^2 + \sum_{i=1}^{n} (w_{ij})^2} $$
+
+2. **Dot Product:**
+
+   $$ \sum_{i=1}^{n} w_{iq} w_{ij} $$
+
+Where:
+- $w_{iq}$ is the weight of term $i$ in the query $Q$
+- $w_{ij}$ is the weight of term $i$ in the document $D_j$
+
+For example, for a query $Q$ containing the terms: {language, python, java}, the weights can be calculated and used in the above formulas to determine the similarity with each document.
+
 ## Setup
 
-1. Install the required dependencies:
+1. Install the required dependenciess
