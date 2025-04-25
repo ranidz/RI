@@ -16,7 +16,7 @@ The similarity between a query $Q$ and a document $D_j$ can be calculated using 
 
 1. **Dice Similarity:**
 
-   $ frac{2 * \sum_{i=1}^{n} w_{iq} w_{ij}}{\sum_{i=1}^{n} (w_{iq})^2 + \sum_{i=1}^{n} (w_{ij})^2} $
+   $frac{2 * \sum_{i=1}^{n} w_{iq} w_{ij}}{\sum_{i=1}^{n} (w_{iq})^2 + \sum_{i=1}^{n} (w_{ij})^2}$
 
 2. **RSV Product:**
 
